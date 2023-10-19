@@ -4,6 +4,9 @@
 using namespace std;
 
 template <typename T>
+void Swap(vector<T>& a,int f,int g);
+
+template <typename T>
 
 int BusquedaBinaria(T x,const vector<T>& a,int ini,int fin){
        
@@ -22,6 +25,9 @@ int BusquedaBinaria(T x,const vector<T>& a,int ini,int fin){
 		return BusquedaBinaria(x,a,medio+1,fin);
         }
 }
+
+template <typename T>
+
 int sort(vector<T>& a,int ini,int fin){
 
         int i = ini;
@@ -30,21 +36,25 @@ int sort(vector<T>& a,int ini,int fin){
 
         for(int j=ini;j<fin;j++){
                 if(a[j] <= x){
-                        swap(a,i,j);
+                        Swap(a,i,j);
                         i++;
                 }
         }
-        swap(a,i,fin);
+        Swap(a,i,fin);
         return i;
 }
 
+template <typename T>
 
-void swap(vector<T>& a,int f,int g){
+void Swap(vector<T>& a,int f,int g){
 
     T aux =a[f];
     a[f] = a[g];
     a[g] = aux;
 }
+
+template <typename T>
+
 void QuickSort(vector<T>& a,int ini,int fin){
 
         if(ini<fin){
